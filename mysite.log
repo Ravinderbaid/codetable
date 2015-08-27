@@ -2160,3 +2160,15 @@ ValueError: The view codetables.views.get_file didn't return an HttpResponse obj
 [27/Aug/2015 21:50:47] DEBUG [django.db.backends:91] (0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 3 LIMIT 21; args=(3,)
 [27/Aug/2015 21:50:47] DEBUG [django.db.backends:91] (0.000) SELECT `codetables_files_saveds`.`id`, `codetables_files_saveds`.`title`, `codetables_files_saveds`.`author_id`, `codetables_files_saveds`.`created_date`, `codetables_files_saveds`.`modified_date` FROM `codetables_files_saveds` WHERE `codetables_files_saveds`.`id` = 1 LIMIT 21; args=(1,)
 [27/Aug/2015 21:50:47] WARNING [django.request:143] Not Found: /get_file/1
+[27/Aug/2015 22:08:19] WARNING [django.request:143] Not Found: /static/js/my.js
+[27/Aug/2015 22:08:19] WARNING [django.request:143] Not Found: /static/css/bootstrap.min.css
+[27/Aug/2015 22:08:19] WARNING [django.request:143] Not Found: /favicon.ico
+[27/Aug/2015 22:08:30] WARNING [django.request:143] Not Found: /static/js/my.js
+[27/Aug/2015 22:08:30] WARNING [django.request:143] Not Found: /static/css/bootstrap.min.css
+[27/Aug/2015 22:09:20] DEBUG [django.db.backends:91] (0.001) SET SQL_AUTO_IS_NULL = 0; args=None
+[27/Aug/2015 22:09:20] DEBUG [django.db.backends:91] (0.000) SHOW TABLES; args=None
+[27/Aug/2015 22:09:20] DEBUG [django.db.backends:91] (0.000) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+[27/Aug/2015 22:09:24] DEBUG [django.db.backends:91] (0.000) SET SQL_AUTO_IS_NULL = 0; args=None
+[27/Aug/2015 22:09:24] DEBUG [django.db.backends:91] (0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'uvl1ldt86ypytl1wj4koem6fhn67h4xc' AND `django_session`.`expire_date` > '2015-08-27 22:09:24') LIMIT 21; args=('uvl1ldt86ypytl1wj4koem6fhn67h4xc', u'2015-08-27 22:09:24')
+[27/Aug/2015 22:09:24] DEBUG [django.db.backends:91] (0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 3 LIMIT 21; args=(3,)
+[27/Aug/2015 22:09:24] DEBUG [django.db.backends:91] (0.000) SELECT `codetables_files_saveds`.`id`, `codetables_files_saveds`.`title`, `codetables_files_saveds`.`author_id`, `codetables_files_saveds`.`created_date`, `codetables_files_saveds`.`modified_date` FROM `codetables_files_saveds` WHERE `codetables_files_saveds`.`author_id` = 3; args=(3,)
