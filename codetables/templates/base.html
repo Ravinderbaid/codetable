@@ -43,11 +43,26 @@
               </ul>
             </li>
           </ul>-->
+          {% if user.username %}
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Blogs</a></li>
-            <!-- <li class="signup"><a href="/signup/">Signup</a></li>
-            <li>{% block user %}<a href="/login/">Login</a>{% endblock %}</li> -->
+            
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Files<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                {% for file in files %}
+                <li><a href="/get_file/{{ file.id }}">{{ file.title }}</a></li>
+                {% endfor %}
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ user.username }}<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="/logout/">Logout</a></li>
+              </ul>
+            </li>
+
           </ul>
+          {% endif %}
         </div><!--/.nav-collapse -->
       </div>
     </div>

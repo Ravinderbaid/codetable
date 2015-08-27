@@ -14,8 +14,8 @@ urlpatterns = patterns('',
     url(r'^signup/$', views.signup, name='signup'),
     url(r'^login/$', views.login_user, name='login'),
     url(r'^logout/$', views.logout_view,name='logout'),
-    url(r'^save_file/$', views.save_file,name='logout'),
-    
+    url(r'^save_file/$', views.save_file,name='savefile'),
+    url(r'^get_file/(?P<file_id>\w+)$', views.get_file,name='getfile'),    
 		(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
 
 )

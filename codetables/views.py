@@ -13,7 +13,8 @@ from forms import MyRegistrationForm
 # Create your views here.
 @login_required(login_url = '/login/')
 def index(request):
-	return render(request, 'home.html')
+	files = Files_saveds.objects.filter(author__exact = request.user.id)
+	return render(request, 'home.html', {'files' :files})
 
 def logout_view(request):
     logout(request)
@@ -153,3 +154,12 @@ def save_file(request):
 			state = {'1' : '2','2' : 'No title or code_text'}
 
 		return HttpResponse(json.dumps(state))
+
+def get_file(request,file_id):
+	fi = Files_saveds.objects.get(pk=file_id)
+	filename = 'user_codes/'+fi.title+'_'+request.user.username+'.c'
+	with open(filename, 'r') as files:
+		code_file = File(files)
+		file_code=code_file.read()
+		files.closed
+	return render(request,'home.html',{'file_code':file_code})
