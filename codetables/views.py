@@ -5,6 +5,7 @@ from django.core.context_processors import csrf
 from django.contrib.auth.decorators import login_required
 import os
 import json
+from django.http import Http404
 import subprocess,shlex,time,psutil,datetime
 from django.contrib.auth import authenticate, login, logout
 from codetables.models import Files_saveds
@@ -156,10 +157,17 @@ def save_file(request):
 		return HttpResponse(json.dumps(state))
 
 def get_file(request,file_id):
-	fi = Files_saveds.objects.get(pk=file_id)
-	filename = 'user_codes/'+fi.title+'_'+request.user.username+'.c'
-	with open(filename, 'r') as files:
-		code_file = File(files)
-		file_code=code_file.read()
-		files.closed
-	return render(request,'home.html',{'file_code':file_code})
+	fi=[]
+	try:
+		fi = Files_saveds.objects.get(pk=file_id)
+	except Exception,e:
+		raise Http404
+	if request.user == fi.author:
+		filename = 'user_codes/'+fi.title+'_'+request.user.username+'.c'
+		with open(filename, 'r') as files:
+			code_file = File(files)
+			file_code=code_file.read()
+			files.closed
+		return render(request,'home.html',{'file_code':file_code})
+	else:
+		raise Http404
